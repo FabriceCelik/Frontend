@@ -24,7 +24,7 @@ export default function Table() {
     )
 
     return (
-        <div className="max-w-[1200px] mx-auto p-4">
+        <div className="max-w-[1200px] mx-auto p-4 mt-10">
             <div className="bg-white border border-gray-300 shadow-md rounded-xl overflow-hidden">
                 <div className="flex flex-col lg:flex-row">
                     <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-200 flex flex-col">
