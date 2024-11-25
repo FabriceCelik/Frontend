@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { computers } from "../utils/data"
 
-export default async function Component() {
+export default function Table() {
     // const [computers, setComputers] = useState()
     const [selectedComputer, setSelectedComputer] = useState(null)
     const [searchQuery, setSearchQuery] = useState("")
-
     // Fetch after mounting
     // useEffect(() => {
     //     const fetchDatas = async () => {
@@ -17,7 +16,7 @@ export default async function Component() {
 
 
     //Such Funktion
-    const filteredComputers = computers.filter(computer =>
+    const filteredComputers = computers?.filter(computer =>
         computer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         Object.values(computer.details).some(value =>
             value.toLowerCase().includes(searchQuery.toLowerCase())
@@ -48,7 +47,7 @@ export default async function Component() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredComputers.map((computer) => (
+                                    {filteredComputers?.map((computer) => (
                                         <tr
                                             key={computer.id}
                                             className={`cursor-pointer hover:bg-blue-50 transition-colors duration-150 ${selectedComputer && selectedComputer.id === computer.id ? 'bg-blue-100' : ''
@@ -60,7 +59,7 @@ export default async function Component() {
                                     ))}
                                 </tbody>
                             </table>
-                            {filteredComputers.length === 0 && (
+                            {filteredComputers?.length === 0 && (
                                 <div className="p-4 text-center text-gray-500">
                                     Es wurden keine Computer gefunden, die Ihrer Suche entsprechen
                                 </div>
@@ -70,27 +69,27 @@ export default async function Component() {
                     <div className="w-full lg:w-2/3 p-6 lg:p-8">
                         {selectedComputer ? (
                             <div className="space-y-6">
-                                <h2 className="text-3xl font-bold text-gray-800">{selectedComputer.name}</h2>
+                                <h2 className="text-3xl font-bold text-gray-800">{selectedComputer?.name}</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <p className="text-sm text-gray-500 mb-1">Prozessor</p>
-                                        <p className="font-medium">{selectedComputer.details.processor}</p>
+                                        <p className="font-medium">{selectedComputer?.details.processor}</p>
                                     </div>
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <p className="text-sm text-gray-500 mb-1">RAM</p>
-                                        <p className="font-medium">{selectedComputer.details.ram}</p>
+                                        <p className="font-medium">{selectedComputer?.details.ram}</p>
                                     </div>
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <p className="text-sm text-gray-500 mb-1">Speicherplatz</p>
-                                        <p className="font-medium">{selectedComputer.details.storage}</p>
+                                        <p className="font-medium">{selectedComputer?.details.storage}</p>
                                     </div>
                                     <div className="bg-gray-50 p-4 rounded-lg">
                                         <p className="text-sm text-gray-500 mb-1">Grafikkarte</p>
-                                        <p className="font-medium">{selectedComputer.details.graphics}</p>
+                                        <p className="font-medium">{selectedComputer?.details.graphics}</p>
                                     </div>
                                     <div className="bg-gray-50 p-4 rounded-lg md:col-span-2">
                                         <p className="text-sm text-gray-500 mb-1">OS</p>
-                                        <p className="font-medium">{selectedComputer.details.os}</p>
+                                        <p className="font-medium">{selectedComputer?.details.os}</p>
                                     </div>
                                 </div>
                             </div>

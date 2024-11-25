@@ -5,9 +5,7 @@ function App() {
 
   return (
     <div>
-      <div className='mt-8'>
-        <Table />
-      </div>
+      <Table />
     </div>
   )
 }
